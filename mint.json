@@ -33,6 +33,12 @@
   ],
   "anchors": [
     {
+      "name": "API Reference",
+      "openapi": "https://api.generiq.ai/api/openapi.json",
+      "url": "api-reference",
+      "icon": "square-terminal"
+    },
+    {
       "name": "Documentation",
       "icon": "book-open-cover",
       "url": "https://mintlify.com/docs"
