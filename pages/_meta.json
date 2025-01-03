@@ -1,7 +1,10 @@
 {
-  "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
+  "-- Getting started": {
+    "type": "separator",
+    "title": "Getting started"
+  },
+  "index": "Overview",
+  "quickstart": "Quickstart",
   "about": {
     "title": "About",
     "type": "page"
