@@ -32,7 +32,7 @@ const config: DocsThemeConfig = {
     link: 'https://github.com/aiandme-io/firewall',
   },
   chat: {
-    link: 'https://discord.com',
+    link: 'https://discord.gg/VbVHRuPXE2',
   },
   docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
   footer: {
