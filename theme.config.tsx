@@ -29,14 +29,14 @@ const logo = (
 const config: DocsThemeConfig = {
   logo,
   project: {
-    link: 'https://github.com/shuding/nextra-docs-template',
+    link: 'https://github.com/aiandme-io/firewall',
   },
   chat: {
-    link: 'https://discord.com',
+    link: 'https://discord.gg/VbVHRuPXE2',
   },
   docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
   footer: {
-    text: 'Nextra Docs Template',
+    text: 'AIandMe Doc',
   },
 }
 

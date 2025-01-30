@@ -1,18 +1,21 @@
 {
+  "index": "Overview",
+  "intro": "Intro",
   "-- Getting started": {
     "type": "separator",
     "title": "Getting started"
   },
-  "index": "Overview",
-  "quickstart": "Quickstart",
-  "about": {
-    "title": "About",
-    "type": "page"
+  "model_providers": "Model providers",
+  "create_a_project": "Create a project",
+  "-- Testing during development": {
+    "type": "separator",
+    "title": "Testing during development"
   },
-  "contact": {
-    "title": "Contact ↗",
-    "type": "page",
-    "href": "https://twitter.com/shuding_",
-    "newWindow": true
-  }
+  "experiments": "Experiments",
+  "assistant_integration": "Integration with your GenAI assistant",
+  "-- Production": {
+    "type": "separator",
+    "title": "Production"
+  },
+  "firewall": "The AIandMe Firewall"
 }
