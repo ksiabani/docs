@@ -10,55 +10,67 @@ To use the endpoint you just need to issue a `POST` request to the projects spec
 
 Find bellow a Python example for a firewall API request, with explanation of the input arguments and the output status codes and params:
 
+
+## Installation
+Install using pip:
+
+```bash
+pip install aiandme
+
+```
+
+## Dependencies
+The AIandMe FirewallOS lib relies on the `Pydantic` lib for data validation (schemas).
+
+
+## An integration example
+
 ```python
-import os, request
+# include basic libs
+from aiandme import (
+    Firewall,
+    AIANDME_Firewall_CannotDecide,
+    AIANDME_Firewall_NotAuthorised,
+)
+from aiandme.schemas import Integration as IntegrationSchema
 
-# get the data bellow from your AIandMe account
-FIREWALL_ENDPOINT = os.getenv("AIANDME_FIREWALL_ENDPOINT", "")
-FIREWALL_APIKEY = os.getenv("AIANDME_FIREWALL__APIKEY", "")
-
-# 1. Ping the API Firewall
-resp = requests.post(
-	FIREWALL_ENDPOINT,
-	headers = {
-		"Content-Type": "application/json",
-		"X-Api-Key": FIREWALL_APIKEY
-	}, 
-	json = {
-		"messages": [{
-			"role": "user",
-			"content": "...put here the user's prompt to filter..."
-		}]
-	}
+# initialise with project data from the platform (endpoint + api key)
+fw = Firewall(
+    IntegrationSchema(
+        endpoint="...",
+        api_key="...",
+    )
 )
 
-# 2. Handle response
-"""
-	If no error occured (i.e., status_code = 200 | 406, then resp is a json as follows:
-		resp = {
-			"log_id": "...a unique ID for the delivered assesment log...",
-	    "explanation": "pass | off_topic | violation | restriction"
-		}
-  else,
-	  resp = {
-		    "message": "...error explanation message..."
-			}
-"""
-if resp.status_code == 200:
-	# PASS - the user prompt is ok to pass to the underlying GenAI agent.
-	...
-elif resp.status_code == 406:
-	# FAIL - the user prompt should be filtered (either `off_topic`, `violation`, `restriction`).
-	...
-elif resp.status_code == 429:
-	# ERROR - Quota exceeded (cannot write logs).
-	...	
-elif resp.status_code == 403:
-	# ERROR - Authorization failed. Probably wrong API key.
-	...
-else:
-	# ERROR - Not related to authorisation (probably 500 error).
-	...
+# use the firewall
+try:
+    u_prompt = "...put here the prompt you wish to analyse..."
+    r = fw.eval(u_prompt)
+
+    # firewall assessment is completed -> handle the assessment
+    if r.status:
+        # prompt passes => pass it to your assistan
+        pass
+
+    # prompt fails => handle according the fail case
+    elif r.fail_category == "off_topic":
+        print("off-topic")
+    elif r.fail_category == "violation":
+        print("intent violation")
+    elif r.fail_category == "restriction":
+        print("restriction triggered")
+
+except AIANDME_Firewall_CannotDecide:
+    # handle here the case were the Firewall could not assess the user prompt
+    # probably out of context, but not very sure
+    print("Could not decide...")
+except AIANDME_Firewall_NotAuthorised:
+    # handle here the case you have used a wrong credentials
+    # make sure you copy-paste correctly from your AIandMe app
+    print("Please check the firewall api credentials.")
+except:
+    # something else went wrong.
+    print("Something else went wrong.")
 ```
 
 Each firewall API call request produces a log entry - the log ID is returned in the JSON response of the API call.  Bellow we show two examples of the related logs, created after a firewall API call.
