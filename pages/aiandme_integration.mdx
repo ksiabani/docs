@@ -1,7 +1,7 @@
 
 # ⚙️  Integrating AIandMe with Your GenAI Assistant  
 
-## **🔍 Why Integrate AIandMe?**  
+## **Why Integrate AIandMe?**  
 
 Seamless **integration with your GenAI assistant** allows AIandMe to:  
 
@@ -13,25 +13,25 @@ AIandMe acts as a **security layer**, intercepting and evaluating user prompts *
 
 ---
 
-## **🛠️ Setting Up AIandMe Integration**  
+## **Setting Up AIandMe Integration**  
 
 To integrate AIandMe, configure the following **two key endpoints** in your assistant setup:  
 
 - **Thread Initialization Endpoint** → Starts the conversation (session-based interactions).  
 - **Chat Completion Endpoint** → Sends user prompts & receives AI responses.  
 
-📌 **AIandMe Request Flow:**  
+**AIandMe Request Flow:**  
 1️⃣ **User sends a query → AIandMe Firewall validates it**  
 2️⃣ **AIandMe evaluates & either allows or blocks the request**  
 3️⃣ **If safe, the assistant processes the input & generates a response**  
 
 ---
 
-## **⚡ Configuring API Endpoints**  
+## **Configuring API Endpoints**  
 
 Each **assistant integration** requires API configuration with structured **requests**.  
 
-📌 **Example: AIandMe Experiment Workflow**  
+**Example: AIandMe Experiment Workflow**  
 ![Workflow](./Untitled-2025-01-26-1442.excalidraw.png)  
 
 | **Argument** | **Explanation** |
@@ -40,13 +40,13 @@ Each **assistant integration** requires API configuration with structured **requ
 | **Headers**  | Include authentication tokens & API keys for secure access. |
 | **Payload**  | JSON payload **including user message & context** (OpenAI-compatible). |
 
-📌 **Example: API Request Flow**  
+**Example: API Request Flow**  
 1️⃣ **Thread Initialization** → Starts the session.  
 2️⃣ **Chat Completion** → Sends prompts & receives responses.  
 
 ---
 
-## **🔌 AIandMe API Integration Example**  
+## **AIandMe API Integration Example**  
 
 Use **AIandMe Firewall** to **filter prompts before passing them to the AI assistant**.  
 

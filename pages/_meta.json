@@ -6,29 +6,29 @@
     "type": "separator",
     "title": "🚀 Getting Started"
   },
-  "quick_start": "⚡ Quick Start Guide",
-  "model_providers": "🔌 Connect a Model Provider",
-  "creating_a_project": "🛠️ Creating a Project",
+  "quick_start": "Quick Start Guide",
+  "model_providers": "Connect a Model Provider",
+  "creating_a_project": "Creating a Project",
 
   "-- Development & AI Security": {
     "type": "separator",
     "title": "🛡️ Development & AI Security"
   },
-  "experiments": "🧪 Experiments & Testing",
-  "llm_as_a_judge": "⚖️ Understanding LLM-as-a-Judge",
-  "firewall": "🔥 AIandMe Firewall: Safe AI Responses",
+  "experiments": "Experiments & Testing",
+  "llm_as_a_judge": "Understanding LLM-as-a-Judge",
+  "firewall": "AIandMe Firewall: Safe AI Responses",
 
-  "-- Deployment & Monitoring": {
+  "-- Integration & Monitoring": {
     "type": "separator",
     "title": "📡 Integration & Monitoring"
   },
-  "aiandme_integration": "⚙️  AIandMe Integration",
-  "logging_monitoring": "📊 Logging & Monitoring AI Responses",
+  "aiandme_integration": "AIandMe Integration",
+  "logging_monitoring": "Logging & Monitoring AI Responses",
 
   "-- Support & Resources": {
     "type": "separator",
     "title": "📚 Support & Resources"
   },
-  "faqs": "❓ FAQs & Troubleshooting",
-  "community": "🌍 Join Our Community"
+  "faqs": "FAQs & Troubleshooting",
+  "community": "Join Our Community"
 }
