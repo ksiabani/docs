@@ -1,0 +1,46 @@
+# 🚀 Welcome to AIandMe, Devs!
+
+You’re about to onboard your team to the AIandMe platform—awesome choice! Let’s get you prepped with the essentials so you can hit the ground running and show off what this platform can do.
+
+---
+
+## **Step 1: Hook Up Your Model Provider**  
+Get your credentials ready (API key, model name, and maybe an endpoint) to plug in your chosen model provider. Check the deets here: [🔌 Setting Up Model Providers](model_providres).
+
+---
+
+## **Step 2: Build a Demo Project**  
+A project in AIandMe is your AI agent’s playground. Peek at the how-to here: [🛠️ Creating a Project in AIandMe](creating_a_project).  
+Prep a real-world use case to flex during onboarding. Nail down these:  
+- **Business Scope:** What’s your AI assistant here to do? Give it a clear purpose in plain language.  
+- **Allowed Intents:** What should it handle? List the key tasks, keep it natural.  
+- **Restricted Intents:** What’s off-limits? Spell out what it shouldn’t touch.  
+
+This sets up a killer demo to wow your team.
+
+---
+
+## **Step 3: Firewall Time**  
+Once your project’s live, the real-time firewall’s good to go. Test it in a playground setup—details and a code snippet are here: [🔥 The AIandMe Firewall](firewall).  
+For onboarding, help your devs grok it by tweaking the assistant code and deploying it to a sandbox with a basic UI. Optional, though—curl or Postman works too for API calls.
+
+---
+
+## **Step 4: Run Experiments**  
+Experiments are where you stress-test your assistant before it goes live. To demo this, deploy your assistant and hook it into an experiment. You’ll need:  
+1. **Init Endpoint (`POST`):** Kick off a convo thread. Include any headers/payload for a `200` response.  
+2. **Completion Endpoint (`POST`):** Handle prompts like this:  
+   ```json
+   {
+       "system": "<optional instructions>",
+       "content": "<user prompt>"
+   }
+   ```
+
+This gets hit with adversarial prompts in the `content` field during testing. The `system` bit can tag along as extra payload if needed.
+
+_Note:_ Static or streaming API? You pick in the experiment setup.
+
+
+## 📋 Checklist cleared, wrapped up tight!** 
+That’s it—your prep checklist for a smooth onboarding sesh. Got questions? Hit up FAQs or vibe with us at AIandMe Community. Let’s code some AI magic!
