@@ -1,0 +1,87 @@
+# 📊 Logging & Monitoring AI Responses  
+
+## **Why Monitor AI Responses?**  
+
+AI security doesn’t stop at **real-time filtering**. Effective **logging & monitoring** ensures:  
+
+✅ **Full visibility into AI decisions** → Track why prompts were **accepted or blocked**.  
+✅ **Auditability & Compliance** → Maintain a **record of all AI interactions** for security reviews.  
+✅ **Continuous AI improvement** → Use log data to **fine-tune AI behavior & policies**.  
+
+The **AIandMe Firewall** automatically logs every **API request and response**, enabling **detailed post-analysis**.  
+
+---
+
+## **AIandMe Firewall Logs**  
+
+Each **firewall API call** generates a **unique `log_id`**, which you can use to retrieve **detailed assessments** later.  
+
+📌 **Example: Firewall Log Dashboard**  
+![Firewall Logs](./log_rec_fail.png)  
+
+📌 **Example: Detailed Log Analysis**  
+![Detailed Logs](./log_rec_pass.png)  
+
+---
+
+## **Retrieving Logs via API**  
+
+You can fetch logs programmatically using the AIandMe API.  
+
+### **🔹 Request Format**  
+Send a `GET` request with the **log ID** to retrieve the full AI analysis:  
+
+```bash
+curl -X GET "https://your-firewall-endpoint/logs/{log_id}" \
+     -H "Authorization: Bearer your-api-key"
+```
+
+### 🔹 Python Example  
+
+Here’s how to retrieve **AIandMe Firewall logs** using Python:  
+
+```python
+import requests
+
+log_id = "your-log-id"
+api_url = f"https://your-firewall-endpoint/logs/{log_id}"
+headers = {"Authorization": "Bearer your-api-key"}
+
+response = requests.get(api_url, headers=headers)
+
+if response.status_code == 200:
+    log_data = response.json()
+    print("Log Details:", log_data)
+else:
+    print("Failed to retrieve log:", response.status_code)
+```
+
+## Log Data Breakdown  
+
+The API returns structured **JSON data**, containing:  
+
+- **status** → `pass` or `fail`  
+- **fail_category** → `off_topic`, `violation`, or `restriction`  
+- **assessment_rationale** → Explanation of **why the prompt passed or failed**  
+- **timestamp** → When the request was processed  
+
+📌 **Example Response:**  
+
+```json
+{
+  "log_id": "123456",
+  "status": "fail",
+  "fail_category": "restriction",
+  "assessment_rationale": "User attempted to request sensitive data.",
+  "timestamp": "2025-01-26T13:45:00Z"
+}
+```
+
+## Best Practices for AI Logging  
+
+- **Regularly review logs** → Identify patterns in AI failures.  
+- **Use logs for model tuning** → Improve accuracy based on failure cases.  
+- **Enable alerts for critical failures** → Automate responses to **security violations**.  
+
+
+💡 Need help? Check out **[FAQs](faqs)** or **[Join the AIandMe Community](community)**.

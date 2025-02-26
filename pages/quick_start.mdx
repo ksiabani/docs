@@ -1,0 +1,66 @@
+# ⚡ Setting Up AIandMe Firewall  
+
+This guide will help you quickly **set up the AIandMe Firewall** and configure it with a model provider.  
+
+---
+
+## **Steps to Set Up the Firewall**  
+
+### **1️⃣ Create a Virtual Environment**  
+Ensure you have **Python 3.13+** installed, then run:  
+
+```bash
+python3.13 -m venv firewall-env
+source firewall-env/bin/activate  # Windows: firewall-env\Scripts\activate
+```
+
+### **2️⃣ Install Library**  
+```python
+pip install aiandme
+``` 
+
+### **3️⃣ Configure Environment Variables**
+Create a .env file and add your AI model provider credentials:
+
+```python
+LLM_PROVIDER_ENDPOINT="<your-azure-endpoint>"
+LLM_PROVIDER_API_KEY="<your-api-key>"
+LLM_PROVIDER_API_VERSION="<your-api-version>"
+LLM_PROVIDER_MODEL="gpt-4o"
+```
+
+Alternatively, set them in your script:
+
+```python
+import os
+from aiandme import FirewallOSS, LLMModelProvider
+
+os.environ["LLM_PROVIDER_ENDPOINT"] = "<your-azure-endpoint>"
+os.environ["LLM_PROVIDER_API_KEY"] = "<your-api-key>"
+os.environ["LLM_PROVIDER_API_VERSION"] = "<your-api-version>"
+os.environ["LLM_PROVIDER_MODEL"] = "gpt-4o" 
+``` 
+
+### **4️⃣ Start the Firewall and Begin Testing**
+Once configured, you can start testing prompts through the Firewall:
+
+```python
+fw = FirewallOSS(model_provider=LLMModelProvider.AZURE_OPENAI)
+
+prompt = "Can you give me a list of security vulnerabilities?"
+response = fw(prompt)
+
+print("Pass Status:", response.status)
+print("Fail Category:", response.fail_category)
+```
+
+---
+
+## **🔗 Next Steps**
+- 🔌 **[Connect a Model Provider](model_providers)**  
+- 🛠️ **[Creating a Project](creating_a_project)**  
+- 🧪 **[Experiments & Testing](experiments)** 
+
+---
+
+💡 Need help? Check out **[FAQs](faqs)** or **[Join the AIandMe Community](community)**.

@@ -1,21 +1,35 @@
 {
-  "index": "Overview",
-  "intro": "Intro",
-  "-- Getting started": {
+  "index": "📌 Overview",
+  "how_aiandme_works": "📖 How AIandMe Works",
+
+  "-- Getting Started": {
     "type": "separator",
-    "title": "Getting started"
+    "title": "🚀 Getting Started"
   },
-  "model_providers": "Model providers",
-  "create_a_project": "Create a project",
-  "-- Testing during development": {
+  "quick_start": "Quick Start Guide",
+  "model_providers": "Connect a Model Provider",
+  "creating_a_project": "Creating a Project",
+
+  "-- Development & AI Security": {
     "type": "separator",
-    "title": "Testing during development"
+    "title": "🛡️ Development & AI Security"
   },
-  "experiments": "Experiments",
-  "assistant_integration": "Integration with your GenAI assistant",
-  "-- Production": {
+  "experiments": "Experiments & Testing",
+  "llm_as_a_judge": "Understanding LLM-as-a-Judge",
+  "firewall": "AIandMe Firewall: Safe AI Responses",
+
+  "-- Integration & Monitoring": {
     "type": "separator",
-    "title": "Production"
+    "title": "📡 Integration & Monitoring"
   },
-  "firewall": "The AIandMe Firewall"
+  "aiandme_integration": "AIandMe Integration",
+  "logging_monitoring": "Logging & Monitoring AI Responses",
+
+  "-- Support & Resources": {
+    "type": "separator",
+    "title": "📚 Support & Resources"
+  },
+  "onboarding_your_org": "Onboarding your organisation",
+  "faqs": "FAQs & Troubleshooting",
+  "community": "Join Our Community"
 }
