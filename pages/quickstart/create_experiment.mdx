@@ -1,0 +1,59 @@
+## 🧪 Step 3: Create and Run an Experiment
+
+Experiments test your AI for vulnerabilities and behavioral issues. Let's create your first test.
+
+### 3.1 Start Experiment Creation
+
+1. Go to your project dashboard
+2. Click **"Create Experiment"**
+3. Choose your experiment type:
+   - **Adversarial Testing**: Tests for security vulnerabilities
+   - **Behavioral QA**: Tests for functional correctness
+
+### 3.2 Configure Your Experiment
+
+#### Basic Settings:
+
+- **Name**: Choose a descriptive name (e.g., "Security Test - Customer Support")
+- **Description**: Explain what you're testing
+- **Model Provider**: Select the provider you set up in Step 1
+- **Language**: Choose the primary language for testing
+
+#### Advanced Settings:
+
+- **Conversation Turn**:
+  - **Single-Turn**: Test individual prompts
+  - **Multi-Turn**: Test full conversations
+- **Testing Level**:
+  - **Quick**: ~500 tests, fast feedback
+  - **Thorough**: ~1200 tests, balanced coverage
+  - **Comprehensive**: ~2000+ tests, deep analysis
+
+#### Integration Configuration:
+
+Configure how ai+me connects to your AI:
+
+1. **Thread Initialization** (if applicable):
+   - Endpoint URL for starting conversations
+   - Headers and payload format
+
+2. **Chat Completion**:
+   - Endpoint URL for sending messages
+   - Headers and payload format
+   - Enable/disable streaming
+
+3. **Streaming Configuration**:
+   - **Enable Streaming**: If your AI returns responses in real-time chunks
+   - **Disable Streaming**: If your AI returns complete responses at once
+
+### 3.3 Launch Your Experiment
+
+Click **"Create Experiment"** to start testing. Your experiment will:
+
+1. **Initialize**: Set up the testing environment
+2. **Generate Tests**: Create contextual test scenarios
+3. **Execute Tests**: Run prompts against your AI
+4. **Analyze Results**: Evaluate responses for issues
+5. **Generate Report**: Compile findings and insights
+
+**⏱️ Expected Duration**: 5-30 minutes depending on testing level and model response time.

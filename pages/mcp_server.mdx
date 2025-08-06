@@ -1,0 +1,382 @@
+---
+title: "🤖 MCP Server Integration"
+description: "Connect to ai+me's Model Context Protocol (MCP) server for seamless AI security testing integration"
+breadcrumb: false
+---
+
+# 🤖 MCP Server Integration
+
+The ai+me Model Context Protocol (MCP) server provides a standardized interface that allows any compatible AI model or agent to access ai+me's comprehensive AI security testing capabilities in a simple and secure way.
+
+You can connect to our MCP server natively through compatible clients such as Claude Desktop, Cursor, Windsurf, Flowise, n8n, and others. Our MCP server is centrally hosted and managed, providing tools to:
+
+- **Create and manage experiments** for AI security testing
+- **Execute comprehensive security assessments** against your AI systems
+- **Retrieve detailed test results** and vulnerability reports
+- **Monitor experiment status** in real-time
+- **Manage projects and configurations** programmatically
+
+## 🔑 Getting Your API Key
+
+Before setting up the MCP server connection, you need to create an API key in your ai+me account:
+
+### **Step 1: Access API Keys Settings**
+
+1. **Navigate to Settings**: Go to your ai+me dashboard
+2. **Open API Keys**: Click on **Settings** → **API Keys**
+3. **View API Keys**: You'll see a list of your existing API keys (if any)
+
+### **Step 2: Create a New API Key**
+
+1. **Click "Create API Key"**: Use the button in the API Keys section
+2. **Enter Key Name**: Provide a descriptive name (e.g., "MCP Server Integration")
+   - **Maximum 50 characters**
+   - **Use a clear, descriptive name**
+3. **Create Key**: Click "Create" to generate your API key
+4. **Copy the Key**: The API key will be displayed once - copy it immediately
+   - **Important**: You won't be able to see the full key again
+   - **Store it securely**: Use a password manager or secure storage
+
+### **Step 3: Use Your API Key**
+
+- **Format**: Your API key will be a long string of characters
+- **Authentication**: Use it in the `Authorization: Bearer <your-api-key>` header
+- **Security**: Never share your API key publicly or commit it to version control
+
+## 🚀 Setup Instructions
+
+Remote MCP connections are still in early development, and you may experience connection issues that require multiple attempts. If you encounter problems:
+
+1. **Restart your client application**
+2. **Disable and re-enable** the ai+me MCP server
+3. **Check your internet connection** and firewall settings
+4. **Verify your authentication token** is valid and active
+5. **Ask for help** in our [Discord Server](https://discord.gg/PSHCDz93xW)
+
+## 🖥️ Platform-Specific Setup
+
+### Claude Desktop
+
+**Free and Pro Users**
+
+1. **Open Claude Desktop Settings**
+2. **Navigate to the Developer tab**
+3. **Click on "Edit Config"** and open the `claude_desktop_config.json` file with a text editor
+4. **Add the following configuration** and restart the Claude Desktop app:
+
+```json
+{
+  "mcpServers": {
+    "aiandme": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.aiandme.io/mcp/",
+        "--header",
+        "Authorization: Bearer <your-api-key>"
+      ]
+    }
+  }
+}
+```
+
+**Replace `<your-api-key>` with your actual API key from the API Keys settings.**
+
+**Team and Enterprise Users (Claude.ai)**
+
+1. **Navigate to Settings** in the sidebar on web or desktop
+2. **Scroll to Integrations** at the bottom and click "Add more"
+3. **In the prompt enter**:
+   - **Integration name**: ai+me
+   - **Integration URL**: `https://mcp.aiandme.io/mcp/`
+4. **Make sure to enable the tools** in any new chats
+
+### Cursor
+
+1. **Press `CTRL/CMD` + `P`** and search for "View: Open MCP Settings"
+2. **Click on "New MCP Server"**
+3. **Add the ai+me configuration** to the JSON configuration file:
+
+```json
+{
+  "mcpServers": {
+    "aiandme": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.aiandme.io/mcp/",
+        "--header",
+        "Authorization: Bearer <your-api-key>"
+      ]
+    }
+  }
+}
+```
+
+**Replace `<your-api-key>` with your actual API key from the API Keys settings.**
+
+### Windsurf
+
+1. **Open Windsurf Settings**
+2. **Navigate to the MCP section**
+3. **Click "Add New Server"**
+4. **Configure with the following settings**:
+   - **Server Name**: ai+me
+   - **Command**: `npx`
+   - **Arguments**: `-y mcp-remote https://mcp.aiandme.io/mcp/ --header Authorization: Bearer <your-api-key>`
+   - **Environment Variables**: None required
+
+**Replace `<your-api-key>` with your actual API key from the API Keys settings.**
+
+### Flowise
+
+1. **Open your Flowise dashboard**
+2. **Navigate to the MCP configuration section**
+3. **Add a new MCP server** with these settings:
+   - **Server Name**: ai+me
+   - **Server URL**: `https://mcp.aiandme.io/mcp/`
+   - **Authentication Type**: Bearer Token
+   - **Token**: Your API key from the API Keys settings
+4. **Save the configuration** and restart Flowise if required
+
+### n8n
+
+1. **Open your n8n instance**
+2. **Go to Settings > Integrations**
+3. **Add a new MCP integration** with these parameters:
+   - **Integration Name**: ai+me
+   - **Server URL**: `https://mcp.aiandme.io/mcp/`
+   - **Authentication**: Bearer Token
+   - **Token Value**: Your API key from the API Keys settings
+4. **Test the connection** and save the configuration
+
+## 🔧 Available Tools
+
+Once connected, you'll have access to the following ai+me tools:
+
+### **Experiment Management**
+
+- **Create Experiment**: Start a new AI security testing experiment
+- **List Experiments**: View all experiments in your project
+- **Get Experiment Results**: Retrieve detailed test results and reports
+- **Monitor Experiment Status**: Check real-time experiment progress
+
+### **Project Management**
+
+- **List Projects**: View all your ai+me projects
+- **Create Project**: Set up a new project for AI security testing
+- **Get Project Details**: Retrieve comprehensive project information
+
+### **Security Testing**
+
+- **Execute Adversarial Tests**: Run comprehensive security assessments
+- **Validate AI Responses**: Test AI system behavior and safety
+- **Generate Security Reports**: Create detailed vulnerability analysis
+
+## 📋 Usage Examples
+
+### Creating an Experiment
+
+```javascript
+// Example: Create a new security experiment
+const experiment = await aiandme.createExperiment({
+  name: "Customer Support Security Test",
+  description: "Testing our customer support AI for security vulnerabilities",
+  type: "adversarial",
+  testingLevel: "thorough",
+  modelProvider: "openai",
+});
+```
+
+### Monitoring Experiment Progress
+
+```javascript
+// Example: Check experiment status
+const status = await aiandme.getExperimentStatus({
+  experimentId: "exp_12345",
+});
+
+if (status.state === "running") {
+  console.log(`Progress: ${status.progress}%`);
+}
+```
+
+### Retrieving Test Results
+
+```javascript
+// Example: Get comprehensive test results
+const results = await aiandme.getExperimentResults({
+  experimentId: "exp_12345",
+});
+
+console.log(`Pass Rate: ${results.passRate}%`);
+console.log(`Security Score: ${results.securityScore}`);
+```
+
+## 🔐 Security and Authentication
+
+### **API Key Management**
+
+- **Create API keys** through Settings → API Keys
+- **Use descriptive names** for easy identification
+- **Store keys securely** in password managers or secure storage
+- **Never share keys** publicly or commit them to version control
+- **Rotate keys regularly** for enhanced security
+- **Monitor key usage** through the ai+me dashboard
+
+### **Token Security Best Practices**
+
+- **Keep your API key secure** and never share it publicly
+- **Use environment variables** when possible to store tokens
+- **Rotate tokens regularly** for enhanced security
+- **Monitor token usage** through the ai+me dashboard
+- **Delete unused tokens** to minimize security risk
+
+### **Rate Limiting**
+
+The ai+me MCP server implements rate limiting to ensure fair usage:
+
+- **60 requests per minute** per authenticated user
+- **Automatic retry logic** for failed requests
+- **Graceful degradation** when limits are exceeded
+
+### **Data Privacy**
+
+- **All data is encrypted** in transit using TLS 1.3
+- **No sensitive data is stored** on the MCP server
+- **Requests are processed securely** and logged for monitoring
+- **Compliance with GDPR** and other privacy regulations
+
+## 🛠️ Troubleshooting
+
+### **Connection Issues**
+
+**Problem**: Unable to connect to the MCP server
+
+**Solutions**:
+
+1. **Verify your internet connection**
+2. **Check firewall settings** - ensure outbound HTTPS traffic is allowed
+3. **Validate the server URL**: `https://mcp.aiandme.io/mcp/`
+4. **Confirm your API key** is correct and active
+5. **Try restarting your client application**
+
+### **Authentication Errors**
+
+**Problem**: Receiving 401 Unauthorized errors
+
+**Solutions**:
+
+1. **Check your API key** is correctly formatted
+2. **Verify the key hasn't expired** or been revoked
+3. **Ensure the Authorization header** is properly set
+4. **Create a new API key** if the current one is compromised
+5. **Contact ai+me support** if issues persist
+
+### **API Key Issues**
+
+**Problem**: API key not working or expired
+
+**Solutions**:
+
+1. **Create a new API key** in Settings → API Keys
+2. **Update your configuration** with the new key
+3. **Delete old keys** to maintain security
+4. **Check key permissions** and scopes
+5. **Verify key is active** in the API Keys dashboard
+
+### **Timeout Issues**
+
+**Problem**: Requests timing out after 3 minutes
+
+**Solutions**:
+
+1. **Check your network latency** to the MCP server
+2. **Reduce batch sizes** for large operations
+3. **Implement retry logic** with exponential backoff
+4. **Use webhooks** for long-running operations
+
+### **Rate Limiting**
+
+**Problem**: Receiving 429 Too Many Requests errors
+
+**Solutions**:
+
+1. **Implement request throttling** in your application
+2. **Use exponential backoff** for retries
+3. **Monitor your request rate** and adjust accordingly
+4. **Contact ai+me support** if you need higher limits
+
+## 📞 Support and Resources
+
+### **Getting Help**
+
+If you encounter issues with the ai+me MCP server:
+
+1. **Check this documentation** for common solutions
+2. **Review the troubleshooting section** above
+3. **Verify your API key** in Settings → API Keys
+4. **Contact ai+me support** at support@aiandme.io
+5. **Join our community** for peer assistance
+
+### **Additional Resources**
+
+- **[Experiments Documentation](./experiments.mdx)**: Detailed guide to AI security testing
+- **[Projects Documentation](./projects.mdx)**: Project management and organization
+- **[Firewall Documentation](./firewall.mdx)**: Security and protection features
+- **[API Documentation](https://api.aiandme.io)**: REST API reference
+
+### **Best Practices**
+
+1. **Start with small experiments** to test your setup
+2. **Monitor experiment progress** regularly
+3. **Review results thoroughly** before making decisions
+4. **Keep your configurations** backed up and versioned
+5. **Stay updated** with the latest ai+me features and improvements
+6. **Manage API keys securely** and rotate them regularly
+
+## 🔄 Updates and Maintenance
+
+### **Server Maintenance**
+
+The ai+me MCP server is regularly maintained and updated:
+
+- **Scheduled maintenance** occurs during low-traffic hours
+- **Advance notice** is provided for planned downtime
+- **Automatic failover** ensures high availability
+- **Performance monitoring** and optimization
+
+### **Feature Updates**
+
+New features and improvements are regularly added:
+
+- **Enhanced security testing** capabilities
+- **Improved performance** and reliability
+- **Additional integration options**
+- **Better error handling** and reporting
+
+### **Version Compatibility**
+
+- **Backward compatibility** is maintained for stable releases
+- **Deprecation notices** are provided well in advance
+- **Migration guides** are available for major updates
+- **Testing environments** for new features
+
+## 🎯 Next Steps
+
+Now that you have the ai+me MCP server configured, you can:
+
+1. **Create your first experiment** using the MCP tools
+2. **Integrate security testing** into your development workflow
+3. **Automate security assessments** for continuous monitoring
+4. **Build comprehensive security reports** for stakeholders
+5. **Scale your AI security testing** across multiple projects
+
+For more detailed information about specific features, explore our guides on:
+
+- [🧪 Experiments & Testing](./experiments.mdx)
+- [🏢 Projects & Project Management](./projects.mdx)
+- [🔥 Firewall & Security](./firewall.mdx)
+- [⚖️ LLM-as-a-Judge](./llm_as_a_judge.mdx)

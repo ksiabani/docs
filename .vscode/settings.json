@@ -1,0 +1,10 @@
+{
+  "files.associations": {
+    "*.mdx": "markdown"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.requireConfig": false,
+  "prettier.useEditorConfig": false,
+  "prettier.configPath": null,
+  "prettier.ignorePath": null
+}

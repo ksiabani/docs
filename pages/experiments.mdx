@@ -1,62 +1,295 @@
-# 🧪 Running AIandMe Experiments - Contextual AI Pen-Testing  
-
-> AIandMe **experiments** function similarly to **penetration testing in cybersecurity**—but instead of testing software vulnerabilities, we test how well a GenAI assistant aligns with its **expected behavior and business scope**.  
-
-> Each experiment **simulates adversarial interactions** to evaluate how the AI assistant handles **unexpected or potentially unsafe inputs**.  
-
-## **How AIandMe Experiments Work**  
-
-The AIandMe **testing pipeline** follows these structured steps:  
-
-**Experiment Workflow:**  
-
-![Experiment Pipeline](./adversarial_testing_process.png)
-
+---
+title: "🧪 Experiments & Testing"
+description: "Comprehensive AI security testing tools for evaluating your AI system's robustness and safety"
+breadcrumb: false
 ---
 
-## **Running an Experiment**  
+# 🧪 Experiments
 
-Once your **project is set up**, you can **start an experiment** by following these steps:  
+ai+me experiments are **comprehensive AI security testing tools** that simulate real-world adversarial attacks to evaluate your AI system's robustness, safety, and compliance. Think of them as **automated penetration testing** for AI applications—they systematically test your AI's boundaries and identify potential vulnerabilities before attackers can exploit them.
 
-### **Create an Experiment**  
-1. Go to the **Experiments** page and click **"Create Experiment"**.
-   ![Create Experiment](./create_experiment_btn.png)  
-2. Fill in the **experiment details** (name, description, etc.).  
-3. Select the **model provider** for LLM-as-a-Judge evaluations.  
-4. Configure the **GenAI assistant integration** for testing.  
-5. Click **"Create"** to launch the experiment.  
+## 🎯 What are ai+me Experiments?
 
----
+ai+me experiments function similarly to **penetration testing in cybersecurity**—but instead of testing software vulnerabilities, we test how well a GenAI assistant aligns with its **expected behavior and business scope**. Each experiment **simulates adversarial interactions** to evaluate how the AI assistant handles **unexpected or potentially unsafe inputs**.
 
-## **Experiment Execution: Step-by-Step**  
+### 🔍 **Key Concepts**
 
-Once started, the experiment runs **automatically in the background**, executing the following steps:
+#### **Adversarial Testing**
 
-### **🔹 Step 1: Adversarial Data Generation**  
-- If no dataset exists for the **current project scope**, AIandMe **auto-generates adversarial synthetic prompts**.  
-- These prompts simulate **real-world edge cases** and **unexpected user interactions**.  
+- **Purpose**: Identify vulnerabilities in AI systems through systematic testing
+- **Method**: Generate and execute adversarial prompts to test AI responses
+- **Goal**: Find weaknesses before attackers do
 
-### **🔹 Step 2: AI Assistant Testing**  
-- Each **adversarial prompt** is sent to the **GenAI assistant**.  
-- The response is **evaluated** against the **expected business behavior**.  
-- AIandMe’s **LLM-as-a-Judge** assigns a **pass/fail verdict** based on predefined guidelines.  
+#### **Behavioral QA Testing**
 
-### **🔹 Step 3: Experiment Completion & Insights**  
-- AIandMe **compiles a final report** with:  
-  🔍 **Findings from the experiment**  
-  📊 **Detailed logs for auditing & human review**  
-  🛠 **Recommendations for improving AI robustness**  
+- **Purpose**: Understand how users interact with your AI system
+- **Method**: Test AI responses against expected behaviors and use cases
+- **Goal**: Ensure AI performs as intended in real-world scenarios
 
-**Experiment Completion Overview:**  
-![Experiment Completion](./experiment_overview.png)  
+#### **LLM-as-a-Judge**
 
----
+- **Purpose**: Use AI to evaluate AI responses for safety and accuracy
+- **Method**: Automated evaluation of AI responses against predefined criteria
+- **Goal**: Consistent, scalable assessment of AI behavior
 
-## **🔗 Next Steps**
-- ⚖️ **[Understanding LLM-as-a-Judge](llm_as_a_judge)**  
-- 🔥 **[AIandMe Firewall: Safe AI Responses](firewall)**  
-- ⚙️  **[AIandMe Integration](aiandme_integration)**  
+## 🏗️ How ai+me Experiments Work
 
----
+The ai+me **testing pipeline** follows these structured steps:
 
-💡 Need help? Check out **[FAQs](faqs)** or **[Join the AIandMe Community](community)**.
+### 📊 **Experiment Architecture**
+
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   Test Data     │    │   AI System     │    │   Evaluation    │
+│   Generation     │───▶│   Under Test    │───▶│   Engine        │
+│                 │    │                 │    │                 │
+│ • Adversarial   │    │ • Your AI       │    │ • LLM-as-Judge  │
+│   Prompts       │    │   Application   │    │ • Safety        │
+│ • Edge Cases    │    │ • API Endpoint  │    │   Criteria      │
+│ • Real-world    │    │ • Integration   │    │   Rules         │
+│   Scenarios     │    │   Points        │    │                 │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+                                │
+                                ▼
+                       ┌─────────────────┐
+                       │   Results &     │
+                       │   Analytics     │
+                       │                 │
+                       │ • Pass/Fail     │
+                       │   Reports       │
+                       │ • Vulnerability │
+                       │   Analysis      │
+                       │ • Recommendations│
+                       │ • Performance   │
+                       │   Metrics       │
+                       └─────────────────┘
+```
+
+## 🚀 Creating Your First Experiment
+
+### **Step 1: Access Experiment Creation**
+
+1. Navigate to your **Project Dashboard**
+2. Go to the **Experiments** tab
+3. Click **"Create Experiment"** button
+4. Choose your experiment type:
+   - **Adversarial Testing**: Security-focused testing
+   - **Behavioral QA**: User interaction testing
+   - **Custom Presets**: Pre-configured test scenarios
+
+### **Step 2: Basic Experiment Configuration**
+
+#### **Experiment Information**
+
+- **Name**: Choose a descriptive name (e.g., "Security Test - Customer Support")
+- **Description**: Explain what you're testing and why
+- **Language**: Select the primary language for testing
+- **Model Provider**: Choose your configured AI model provider
+
+#### **Experiment Types**
+
+##### **Adversarial Testing**
+
+- **OWASP LLM Top 10**: Tests against the OWASP LLM Top 10 vulnerabilities
+- **OWASP Agentic**: Tests against the OWASP Agentic threats
+- **Adaptive Testing**: Multi-turn conversation testing for complex attacks
+
+##### **Behavioral QA Testing**
+
+- **User Interaction**: Tests how users interact with your AI
+- **Functional Testing**: Validates AI responses against expected behaviors
+- **Edge Case Testing**: Tests boundary conditions and unusual inputs
+
+### **Step 3: Advanced Configuration**
+
+#### **Conversation Turn Types**
+
+##### **Single-Turn Testing**
+
+- **Purpose**: Test individual prompts and responses
+- **Use Case**: Simple Q&A scenarios, basic functionality testing
+- **Advantage**: Fast execution, clear pass/fail results
+- **Best For**: Initial testing, quick validation
+
+##### **Multi-Turn Testing**
+
+- **Purpose**: Simulate full conversations with back-and-forth interaction
+- **Use Case**: Complex scenarios, conversational AI testing
+- **Advantage**: More realistic testing, catches context-based vulnerabilities
+- **Best For**: Advanced testing, conversational AI systems
+
+#### **Testing Levels**
+
+##### **Quick (~500 tests)**
+
+- **Duration**: 5-15 minutes
+- **Coverage**: Basic security validation
+- **Use Case**: Initial testing, rapid feedback
+- **Best For**: Development phase, quick validation
+
+##### **Thorough (~1200 tests)**
+
+- **Duration**: 15-30 minutes
+- **Coverage**: Balanced security and performance testing
+- **Use Case**: Pre-production testing, comprehensive validation
+- **Best For**: Most production scenarios
+
+##### **Comprehensive (~2000+ tests)**
+
+- **Duration**: 30-60 minutes
+- **Coverage**: Deep security analysis, edge case testing
+- **Use Case**: Critical systems, compliance requirements
+- **Best For**: High-security applications, regulatory compliance
+
+### **Step 4: Integration Configuration**
+
+#### **API Endpoint Setup**
+
+Configure how ai+me connects to your AI system:
+
+##### **Thread Initialization (Multi-turn only)**
+
+- **Endpoint URL**: API endpoint for starting conversations
+- **Headers**: Authentication and configuration headers (JSON format)
+- **Payload**: Request body for conversation initialization (JSON format)
+
+##### **Chat Completion**
+
+- **Endpoint URL**: API endpoint for sending messages
+- **Headers**: Authentication and configuration headers (JSON format)
+- **Payload**: Request body format for message sending (JSON format)
+- **Streaming**: Enable/disable real-time response streaming
+
+#### **Authentication Configuration**
+
+- **API Keys**: Secure storage of authentication credentials
+- **Headers**: Custom headers for authentication
+- **Payload Authentication**: Token-based or session-based auth
+
+### **Step 5: Launch Your Experiment**
+
+Click **"Create Experiment"** to start testing. Your experiment will:
+
+1. **Initialize**: Set up the testing environment
+2. **Generate Tests**: Create contextual test scenarios
+3. **Execute Tests**: Run prompts against your AI
+4. **Analyze Results**: Evaluate responses for issues
+5. **Generate Report**: Compile findings and insights
+
+**⏱️ Expected Duration**: 5-60 minutes depending on testing level and model response time.
+
+## 📊 View Experiment Results
+
+Once your experiment completes, explore the comprehensive results to understand your AI's security posture and identify potential vulnerabilities.
+
+### 4.1 Access Your Results
+
+1. Go to your project's **Experiments** page
+2. Find your completed experiment (status will show "Finished")
+3. Click on the experiment name to view detailed results
+
+### 4.2 Overview Dashboard
+
+The **Overview** tab provides a comprehensive summary with key insights:
+
+#### **📈 Performance Metrics Dashboard**
+
+**Core Metrics:**
+
+- **Total Performance Index (TPI)**: Comprehensive performance score (0-100)
+- **Reliability Score**: Statistical confidence in test results (90%+ is high confidence)
+- **Fail Impact**: Assessment of the severity and potential impact of failed tests
+- **Pass Rate**: Percentage of tests your AI handled correctly (with risk level indicators)
+- **Error Rate**: Percentage of tests that resulted in technical errors
+
+**Metrics are color-coded by risk level:**
+
+- **🟢 Green**: Excellent performance (Pass Rate ≥95%, Error Rate ≤5%)
+- **🔵 Blue**: Good performance (Pass Rate 85-94%, Error Rate 6-15%)
+- **🟠 Orange**: Fair performance (Pass Rate 70-84%, Error Rate 16-30%)
+- **🔴 Red**: Poor performance (Pass Rate < 70%, Error Rate >30%)
+
+#### **📊 Test Results by Category**
+
+View detailed breakdown by security category:
+
+- **Risk Category (Threat)**: Specific vulnerability type tested
+- **Risk Level**: Risk assessment (High, Medium, Low)
+- **Failed Tests**: Number of tests that failed in each risk category
+- **Security Framework Mapping**: Mappings to security frameworks like the OWASP LLM Top 10
+
+#### **💡 AI-Powered Insights**
+
+- **Security Insights**: AI-generated analysis of vulnerabilities found
+- **Severity Assessment**: Risk levels with detailed explanations
+- **Pattern Recognition**: Common attack vectors that succeeded
+
+### 4.3 Detailed Logs Analysis
+
+The **Logs** tab provides granular test-by-test examination:
+
+#### **🔍 Advanced Filtering System**
+
+**Filter by Result:**
+
+- **Pass**: Tests your AI handled correctly
+- **Fail**: Tests where vulnerabilities were detected
+- **Error**: Tests with technical issues
+
+**Filter by Categories:**
+
+- **Risk Categories**: Prompt injection, data leakage, scope violations
+- **Data Strategy Categories**: Test creation strategies and approaches
+
+**Additional Filters:**
+
+- **Representatives Only**: Show only representative test cases
+- **Search Functionality**: Find specific prompts or responses
+
+#### **📋 Individual Test Analysis**
+
+Click on any test row to see comprehensive details in the **resizable detail pane**:
+
+**📝 Basic Information:**
+
+- **Test ID**: Unique identifier for tracking
+- **Created/Updated Timestamps**: When the test was executed
+- **Result Badge**: Pass/Fail status with color coding
+
+**🔬 Detailed Evaluation:**
+
+- **Result**: Pass, Fail, or Error with severity indicators
+- **Data Strategy**: How the test was generated (for custom QA experiments)
+- **Severity Level**: High, Medium, Low risk assessment (for failed tests)
+- **Risk Category**: Specific vulnerability type identified
+- **AI Explanation**: Detailed reasoning why the test passed or failed
+- **Conversation Flow:**: Full conversation between test prompt and AI response
+
+### 4.4 Understanding Your Results
+
+#### **✅ Passed Tests (Green)**
+
+- **Meaning**: Your AI handled the scenario correctly and securely
+- **Security Status**: No vulnerabilities detected for this test case
+- **Action**: Document as acceptable behavior pattern
+- **Confidence**: High reliability when pass rate is ≥95%
+
+#### **❌ Failed Tests (Red)**
+
+- **Meaning**: Potential security vulnerability or inappropriate response detected
+- **Risk Levels**:
+  - **High Severity**: Critical security issues requiring immediate attention
+  - **Medium Severity**: Important issues that should be addressed
+  - **Low Severity**: Minor concerns for future consideration
+- **Action Required**: Review prompt, response, and AI explanation
+- **Next Steps**: Implement fixes based on specific recommendations
+
+#### **⚠️ Error Tests (Gray)**
+
+- **Meaning**: Technical issues during test execution
+- **Common Causes**:
+  - API connection timeouts
+  - Invalid responses from your AI system
+  - Configuration or authentication problems
+- **Action**: Check integration settings and API connectivity
+- **Impact**: High error rates (>30%) indicate system issues

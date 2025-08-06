@@ -1,0 +1,111 @@
+---
+title: "🐙 GitHub Integration"
+description: "Integrate ai+me experiments into your CI/CD pipeline with GitHub Actions"
+breadcrumb: false
+---
+
+# 🐙 GitHub Integration
+
+ai+me integrates seamlessly with **GitHub Actions** to bring AI security testing into your CI/CD pipeline. This enables **automated security validation** of your AI applications on every pull request, ensuring that code changes don't introduce security vulnerabilities before they reach production.
+
+## 🎯 What is GitHub Integration?
+
+GitHub integration with ai+me allows you to **automatically trigger experiments** when code changes are made, providing:
+
+- **🔒 Automated Security Testing**: Run AI security tests on every PR
+- **🚀 Early Vulnerability Detection**: Catch security issues before deployment
+- **📊 Continuous Compliance**: Maintain security standards across all changes
+- **🔄 Seamless Workflow**: Integrate security testing into existing CI/CD processes
+
+## 🚀 Setting Up GitHub Integration
+
+### **Step 1: Prepare Your Experiment**
+
+Before setting up GitHub integration, you need a **configured experiment** in ai+me:
+
+1. **Create an Experiment**: Set up your AI security testing experiment
+2. **Test Manually**: Run the experiment manually to verify it works
+3. **Note Integration Details**: You'll need the experiment endpoint URL
+
+### **Step 2: Access Integration Settings**
+
+1. **Navigate to Your Experiment**: Go to your experiment in ai+me
+2. **Open Settings**: Click on the **Settings** tab
+3. **Select Integration**: Choose the **Integration** sub-tab
+4. **View Integration Details**: You'll see the endpoint URL and GitHub Action example
+
+### **Step 3: Get Required Information**
+
+From the experiment integration page, you'll need:
+
+#### **Experiment Endpoint URL**
+
+- **Location**: Displayed prominently on the integration page
+- **Format**: `https://api.aiandme.io/experiments/{experiment-id}`
+
+#### **Project API Key**
+
+- **Location**: Link to project settings from the integration page
+- **Path**: `/projects/{project-id}/settings/integration`
+
+### **Step 4: Create GitHub Actions Workflow**
+
+Create a `.github/workflows/aiandme-security.yml` file in your repository:
+
+```yaml
+name: AIandMe Security Testing
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  push:
+    branches: [main, develop]
+
+jobs:
+  security-test:
+    runs-on: ubuntu-latest
+    name: AI Security Testing
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run AI Security Experiment
+        env:
+          API_KEY: ${{ secrets.PROJECT_API_KEY }}
+          ENDPOINT_URL: ${{ secrets.EXPERIMENT_CLONE_ENDPOINT }}
+          PROVIDER_ID: ${{ secrets.PROVIDER_ID }}
+        run: |
+          echo "🚀 Triggering AI security experiment..."
+
+          # Trigger the experiment
+          response=$(curl -s -w "%{http_code}" -X POST "$ENDPOINT_URL" \
+            -H "x-api-key: $API_KEY" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "provider_id": "$PROVIDER_ID"
+            }')
+
+          # Extract status code and response body
+          http_code="${response: -3}"
+          response_body="${response%???}"
+
+          if [ "$http_code" -eq 200 ] || [ "$http_code" -eq 201 ]; then
+            echo "✅ Experiment triggered successfully"
+            echo "📊 Check your AIandMe dashboard for results and insights"
+          else
+            echo "❌ Failed to trigger experiment (HTTP $http_code)"
+            echo "Response: $response_body"
+            exit 1
+          fi
+
+      - name: Comment on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '🔒 AI security testing has been triggered. Check your [AIandMe dashboard](https://app.aiandme.io) for results and insights.'
+            })
+```

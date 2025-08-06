@@ -1,0 +1,115 @@
+## 📊 Step 4: View Experiment Results
+
+Once your experiment completes, explore the comprehensive results to understand your AI's security posture and identify potential vulnerabilities.
+
+### 4.1 Access Your Results
+
+1. Go to your project's **Experiments** page
+2. Find your completed experiment (status will show "Finished")
+3. Click on the experiment name to view detailed results
+
+### 4.2 Overview Dashboard
+
+The **Overview** tab provides a comprehensive summary with key insights:
+
+#### **📈 Performance Metrics Dashboard**
+
+**Core Metrics:**
+
+- **Total Performance Index (TPI)**: Comprehensive performance score (0-100)
+- **Reliability Score**: Statistical confidence in test results (90%+ is high confidence)
+- **Fail Impact**: Assessment of the severity and potential impact of failed tests
+- **Pass Rate**: Percentage of tests your AI handled correctly (with risk level indicators)
+- **Error Rate**: Percentage of tests that resulted in technical errors
+
+**Metrics are color-coded by risk level:**
+
+- **🟢 Green**: Excellent performance (Pass Rate ≥95%, Error Rate ≤5%)
+- **🔵 Blue**: Good performance (Pass Rate 85-94%, Error Rate 6-15%)
+- **🟠 Orange**: Fair performance (Pass Rate 70-84%, Error Rate 16-30%)
+- **🔴 Red**: Poor performance (Pass Rate < 70%, Error Rate >30%)
+
+#### **📊 Test Results by Category**
+
+View detailed breakdown by security category:
+
+- **Risk Category (Threat)**: Specific vulnerability type tested
+- **Risk Level**: Risk assessment (High, Medium, Low)
+- **Failed Tests**: Number of tests that failed in each risk category
+- **Security Framework Mapping**: Mappings to security frameworks like the OWASP LLM Top 10
+
+#### **💡 AI-Powered Insights**
+
+- **Security Insights**: AI-generated analysis of vulnerabilities found
+- **Severity Assessment**: Risk levels with detailed explanations
+- **Pattern Recognition**: Common attack vectors that succeeded
+
+### 4.3 Detailed Logs Analysis
+
+The **Logs** tab provides granular test-by-test examination:
+
+#### **🔍 Advanced Filtering System**
+
+**Filter by Result:**
+
+- **Pass**: Tests your AI handled correctly
+- **Fail**: Tests where vulnerabilities were detected
+- **Error**: Tests with technical issues
+
+**Filter by Categories:**
+
+- **Risk Categories**: Prompt injection, data leakage, scope violations
+- **Data Strategy Categories**: Test creation strategies and approaches
+
+**Additional Filters:**
+
+- **Representatives Only**: Show only representative test cases
+- **Search Functionality**: Find specific prompts or responses
+
+#### **📋 Individual Test Analysis**
+
+Click on any test row to see comprehensive details in the **resizable detail pane**:
+
+**📝 Basic Information:**
+
+- **Test ID**: Unique identifier for tracking
+- **Created/Updated Timestamps**: When the test was executed
+- **Result Badge**: Pass/Fail status with color coding
+
+**🔬 Detailed Evaluation:**
+
+- **Result**: Pass, Fail, or Error with severity indicators
+- **Data Strategy**: How the test was generated (for custom QA experiments)
+- **Severity Level**: High, Medium, Low risk assessment (for failed tests)
+- **Risk Category**: Specific vulnerability type identified
+- **AI Explanation**: Detailed reasoning why the test passed or failed
+- **Conversation Flow:**: Full conversation between test prompt and AI response
+
+### 4.4 Understanding Your Results
+
+#### **✅ Passed Tests (Green)**
+
+- **Meaning**: Your AI handled the scenario correctly and securely
+- **Security Status**: No vulnerabilities detected for this test case
+- **Action**: Document as acceptable behavior pattern
+- **Confidence**: High reliability when pass rate is ≥95%
+
+#### **❌ Failed Tests (Red)**
+
+- **Meaning**: Potential security vulnerability or inappropriate response detected
+- **Risk Levels**:
+  - **High Severity**: Critical security issues requiring immediate attention
+  - **Medium Severity**: Important issues that should be addressed
+  - **Low Severity**: Minor concerns for future consideration
+- **Action Required**: Review prompt, response, and AI explanation
+- **Next Steps**: Implement fixes based on specific recommendations
+
+#### **⚠️ Error Tests (Gray)**
+
+- **Meaning**: Technical issues during test execution
+- **Common Causes**:
+  - API connection timeouts
+  - Invalid responses from your AI system
+  - Configuration or authentication problems
+- **Action**: Check integration settings and API connectivity
+- **Impact**: High error rates (>30%) indicate system issues

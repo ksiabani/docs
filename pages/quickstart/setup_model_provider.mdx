@@ -1,0 +1,30 @@
+## 🚀 Step 1: Set Up a Model Provider
+
+Your model provider is the AI service that powers your application. ai+me needs to connect to it to run tests.
+
+### 1.1 Navigate to Model Providers
+
+1. Go to **Settings** → **Model Providers** in your ai+me dashboard
+2. Click **"Add Provider"** to begin setup
+
+### 1.2 Choose Your Provider
+
+ai+me supports multiple model providers:
+
+- **OpenAI**
+- **Azure OpenAI**
+- **Additional providers** including Claude, DeepSeek, and OpenRouter, plus custom model connectors are available in our roadmap
+
+### 1.3 Configure Provider Settings
+
+#### For OpenAI:
+
+1. Enter your **API Key** from [OpenAI Platform](https://platform.openai.com/api-keys)
+
+#### For Azure OpenAI:
+
+1. Enter your **API Key** from Azure Portal
+2. Provide your **Endpoint URL** with deployment and API version included:
+   - Format: `https://your-resource.openai.azure.com/openai/deployments/your-deployment-name/chat/completions?api-version=2023-03-15-preview`
+   - Replace `your-resource` with your Azure resource name
+   - Replace `your-deployment-name` with your model deployment name
