@@ -1,0 +1,52 @@
+---
+title: "🔓 Open Source"
+description: "Open source library for implementing contextual firewalls for LLM-based applications"
+breadcrumb: false
+---
+
+# 🔓 Open Source
+
+ai+me maintains an open source library that implements a **contextual firewall** for LLM-based applications using the `LLM-as-a-judge` concept. This library helps safeguard your AI systems from unintended prompts such as jailbreaking attempts, malicious inputs, and other security threats.
+
+## 🛡️ AIandMe FirewallOSS
+
+The [AIandMe FirewallOSS](https://github.com/aiandme-io/firewall) is an open-source library that acts as a middleware layer to contextually filter and validate user prompts. It ensures that AI agents adhere to their intended business scope and operational boundaries through a reflection approach where an LLM acts as a judge.
+
+### **Key Features**
+
+- **Scope Validation**: Ensures user prompts align with the AI agent's defined business scope
+- **Intent Filtering**: Allows only prompts that match predefined permitted intents
+- **Restricted Action Blocking**: Blocks prompts that attempt to trigger restricted actions
+- **Two-Step Assessment**: Initial quick decision followed by detailed explanation for efficiency
+- **Multiple LLM Provider Support**: Works with OpenAI and Azure OpenAI (with more providers coming soon)
+
+### **How It Works**
+
+The library operates in two asynchronous steps for low latency:
+
+1. **Initial Assessment**: Quickly delivers a decision regarding the three categories: `off_topic`, `violation`, or `restriction`
+2. **Explanation**: Provides a detailed explanation of the verdict using streaming capabilities
+
+The library **does not function as a proxy** - instead, it analyzes user prompts and provides flags indicating potential issues. It's the responsibility of the LLM application developer to determine how to handle flagged prompts based on their specific requirements.
+
+## 🚀 Getting Started
+
+Install the library using pip:
+
+```bash
+pip install aiandme
+```
+
+The library supports both self-hosting with your own LLM providers and integration with the ai+me platform for enhanced features and logging capabilities.
+
+## 📄 License
+
+The AIandMe FirewallOSS library is released under the MIT license, making it free for both personal and commercial use.
+
+## 🤝 Community
+
+Join the ai+me community to contribute, get support, and stay updated:
+
+- [GitHub Repository](https://github.com/aiandme-io/firewall)
+
+The open source library represents our commitment to transparency and community-driven development in AI security.

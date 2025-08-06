@@ -1,43 +1,92 @@
-# 🔥 The AIandMe Firewall  
-
-## **What is the AIandMe Firewall?**  
-
-The **AIandMe Firewall** acts as a **context-aware AI security filter**, similar to a **traditional cybersecurity firewall** but tailored for **GenAI applications**. It **analyzes user prompts in real-time** and filters them based on **business rules, security constraints, and ethical guidelines** defined in your project settings.  
-
-✅ **Prevents AI misuse** by filtering harmful, off-topic, or restricted inputs.  
-✅ **Deploys automatically** when you create an AIandMe project.  
-✅ **Scalable & low-latency** → Built on a **serverless architecture** for high performance.  
-
-> **Find your Firewall API details in**:  
-**Project Settings → Integration**  
-Here, you'll get your **custom API endpoint & key** for integrating AIandMe with your GenAI assistant.  
-
-![Firewall Settings](./firewall_integration_data.png)  
-
+---
+title: "🔥 Firewall & Security"
+description: "Real-time AI security evaluation with ai+me Firewall"
+breadcrumb: false
 ---
 
-## **Using the Firewall API**  
+# 🔥 Firewall
 
-The AIandMe Firewall is **easy to integrate** with any AI system. Just send a `POST` request to your **project-specific endpoint**, and the firewall will evaluate the prompt in **two stages**:  
+The ai+me Firewall is a **real-time security evaluation system** that analyzes user requests to your AI applications and provides verdicts on their safety and appropriateness.
 
-1️⃣ **Immediate Response** → Returns a **PASS/FAIL** verdict and a `log_id` for tracking.  
-2️⃣ **Detailed Analysis** → The full explanation is retrievable later using the `log_id`.  
+## 🎯 What is the ai+me Firewall?
 
----
+The ai+me Firewall is an **intelligent evaluation system** that assesses user requests against your AI's defined scope and security policies. It acts as a **security advisor** that provides you with detailed verdicts, allowing you to make informed decisions about how to handle each request.
 
-## **Installation & Dependencies**  
+### 🔍 **Key Concepts**
 
-Install the **AIandMe Firewall SDK** via `pip`:  
+#### **Real-time Evaluation**
 
-```bash
-pip install aiandme
+- **Instant Analysis**: Evaluates requests in milliseconds
+- **LLM-as-Judge**: Uses the same evaluation technology as experiments
+- **Continuous Monitoring**: 24/7 evaluation for your AI applications
+- **Zero Downtime**: Seamless integration without service interruption
+
+#### **Developer Control**
+
+- **Verdict Provision**: Provides detailed assessments, not automatic blocking
+- **Decision Support**: Gives you the information needed to make informed choices
+- **Flexible Response**: Allows you to implement your own response strategies
+- **Context Awareness**: Considers conversation context for better accuracy
+
+## 🏗️ How the Firewall Works
+
+The ai+me Firewall operates as an **evaluation system** that analyzes requests and provides detailed verdicts:
+
+### 📊 **Firewall Architecture**
+
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   User Request  │    │   Firewall      │    │   Your          │
+│                 │───▶│   Evaluation    │───▶│   Application   │
+│ • User Prompt   │    │                 │    │                 │
+│ • Context       │    │ • LLM-as-Judge  │    │ • Process       │
+│ • Metadata      │    │ • Safety Check  │    │   Verdict       │
+│                 │    │ • Scope Analysis│    │ • Send Response │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+                                │
+                                ▼
+                       ┌─────────────────┐
+                       │   Verdict       │
+                       │   Response      │
+                       │                 │
+                       │ • Status        │
+                       │ • Fail Category │
+                       │ • Explanation   │
+                       │ • Confidence    │
+                       └─────────────────┘
 ```
 
----
+## 🚀 Setting Up Your Firewall
 
-## AIandMe Firewall Integration Example  
+### **Step 1: Get Integration Details**
 
-Here’s a **Python integration example**, showing how to use the **AIandMe Firewall API** in your application:  
+Click the **settings icon** (gear icon) in the upper right corner of the Firewall page to access:
+
+- **API endpoint** for firewall integration
+- **Authentication credentials** (API keys)
+- **Configuration settings**
+
+### **Step 2: Configure Integration**
+
+#### **API Endpoint Setup**
+
+The firewall provides a dedicated endpoint for your application:
+
+```
+https://api.aiandme.io/firewall/{project-id}
+```
+
+#### **Authentication**
+
+Use your project's API key for authentication:
+
+```bash
+Authorization: Bearer your-project-api-key
+```
+
+### **Step 3: Integrate with Your Application**
+
+#### **Python Integration**
 
 ```python
 # Import necessary libraries
@@ -48,57 +97,164 @@ from aiandme import (
 )
 from aiandme.schemas import Integration as IntegrationSchema
 
-# Initialize the firewall with project credentials (endpoint & API key)
+# Initialize the firewall with project credentials
 fw = Firewall(
     IntegrationSchema(
-        endpoint="https://your-firewall-endpoint",
-        api_key="your-api-key",
+        endpoint="https://api.aiandme.io/firewall/your-project-id",
+        api_key="your-project-api-key",
     )
 )
 
-# Analyze a user prompt
+# Evaluate a user prompt
 try:
+    # The user prompt that is being assessed
     user_prompt = "Request content for AI analysis..."
-    response = fw.eval(user_prompt)
 
+    # Optional: Previous agent prompt for context
+    agent_prompt = "The previous prompt from the agent that the user is responding to."
+
+    response = fw.eval(user_prompt, agent_prompt)
+
+    # You decide how to handle the verdict
     if response.status:
-        # ✅ Safe prompt → Send to AI assistant
-        pass
-    elif response.fail_category == "off_topic":
-        print("🚫 Off-topic request")
-    elif response.fail_category == "violation":
-        print("🚫 Intent violation detected")
-    elif response.fail_category == "restriction":
-        print("🚫 Restricted action triggered")
+        # ✅ Safe prompt → Process with your AI
+        ai_response = your_ai_system.process(user_prompt)
+        return ai_response
+    else:
+        # 🚫 Potentially unsafe prompt - you decide the response
+        if response.fail_category == "off_topic":
+            return "I'm sorry, but that's outside my area of expertise."
+        elif response.fail_category == "violation":
+            return "I cannot help with that request as it violates my guidelines."
+        elif response.fail_category == "restriction":
+            return "I'm not authorized to perform that action."
+        else:
+            return "I cannot process that request at this time."
 
 except AIANDME_Firewall_CannotDecide:
-    print("🤔 Firewall uncertain—manual review needed.")
+    # 🤔 Firewall uncertain—you decide how to handle
+    return "I need to review your request. Please try again later."
 except AIANDME_Firewall_NotAuthorised:
-    print("⚠️ Authentication failed. Check your API credentials.")
+    # ⚠️ Authentication failed
+    print("Check your API credentials.")
 except Exception as e:
-    print(f"❌ Unexpected error: {e}")
+    # ❌ Unexpected error
+    print(f"Firewall error: {e}")
+    return "I'm experiencing technical difficulties."
 ```
 
----
+#### **JavaScript/Node.js Integration**
 
-## Two-Phase Firewall API Response  
+```javascript
+const axios = require("axios");
 
-To **optimize efficiency**, the **AIandMe Firewall API** returns results in **two phases**:  
+class AIandMeFirewall {
+  constructor(projectId, apiKey) {
+    this.endpoint = `https://api.aiandme.io/firewall/${projectId}`;
+    this.apiKey = apiKey;
+  }
 
-1️⃣ **Instant Response** → Delivers a **log ID** and a **quick PASS/FAIL assessment** for real-time filtering.  
-2️⃣ **Detailed Analysis** → The **full explanation** of the AI evaluation can be retrieved later using the **log ID**.  
+  async evaluateRequest(userPrompt, agentPrompt = null) {
+    try {
+      const response = await axios.post(
+        this.endpoint,
+        {
+          prompt: userPrompt,
+          agent_prompt: agentPrompt,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${this.apiKey}`,
+            "Content-Type": "application/json",
+          },
+        },
+      );
 
----
+      return response.data;
+    } catch (error) {
+      throw new Error(`Firewall evaluation failed: ${error.message}`);
+    }
+  }
+}
 
-## Open-Source
-The **AIandMe Firewall** is released as **open-source 🌍 software** to **promote responsible AI usage** and support AI security development, for more details & contributions → [**GitHub Repository**](https://github.com/aiandme-io/firewall)  
+// Usage
+const firewall = new AIandMeFirewall("your-project-id", "your-api-key");
 
----
+async function processUserRequest(userPrompt) {
+  try {
+    const verdict = await firewall.evaluateRequest(userPrompt);
 
-## **🔗 Next Steps**
-- ⚙️  **[AIandMe Integration](aiandme_integration)**  
-- 📊 **[Logging & Monitoring AI Responses](logging_monitoring)**
+    // You decide how to handle the verdict
+    if (verdict.status) {
+      // ✅ Safe request - process with your AI
+      return await yourAISystem.process(userPrompt);
+    } else {
+      // 🚫 Potentially unsafe request - you choose the response
+      switch (verdict.fail_category) {
+        case "off_topic":
+          return "That's outside my area of expertise.";
+        case "violation":
+          return "I cannot help with that request.";
+        case "restriction":
+          return "I'm not authorized for that action.";
+        default:
+          return "I cannot process that request.";
+      }
+    }
+  } catch (error) {
+    console.error("Firewall error:", error);
+    return "I'm experiencing technical difficulties.";
+  }
+}
+```
 
----
+#### **cURL Example**
 
-💡 Need help? Check out **[FAQs](faqs)** or **[Join the AIandMe Community](community)**.
+```bash
+curl -X POST "https://api.aiandme.io/firewall/your-project-id" \
+  -H "Authorization: Bearer your-api-key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "prompt": "User request here",
+    "agent_prompt": "Previous agent response (optional)"
+  }'
+```
+
+## 📊 Understanding Firewall Verdicts
+
+### **Verdict Categories**
+
+#### **✅ Safe Requests (status: true)**
+
+- **Definition**: Requests that pass all security evaluations
+- **Action**: You can safely process with your AI system
+- **Criteria**: Aligns with business scope and allowed intents
+
+#### **🚫 Potentially Unsafe Requests (status: false)**
+
+##### **Off-Topic Requests (fail_category: "off_topic")**
+
+- **Definition**: Requests outside your AI's defined scope
+- **Example**: Asking a customer support bot about medical advice
+- **Your Decision**: How to respond to out-of-scope requests
+- **Risk Level**: Low - typically user confusion
+
+##### **Intent Violations (fail_category: "violation")**
+
+- **Definition**: Requests that violate your AI's allowed intents
+- **Example**: Asking for unauthorized access to user data
+- **Your Decision**: How to handle policy violations
+- **Risk Level**: Medium - potential security concern
+
+##### **Restricted Actions (fail_category: "restriction")**
+
+- **Definition**: Requests for actions your AI is not authorized to perform
+- **Example**: Attempting to modify system settings or access restricted data
+- **Your Decision**: How to respond to unauthorized requests
+- **Risk Level**: High - security violation
+
+#### **🤔 Uncertain Requests (AIANDME_Firewall_CannotDecide)**
+
+- **Definition**: Requests where the firewall cannot make a clear determination
+- **Your Decision**: Whether to process, block, or flag for manual review
+- **Action**: Implement your own uncertainty handling strategy

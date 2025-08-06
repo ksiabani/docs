@@ -1,35 +1,60 @@
 {
-  "index": "📌 Overview",
-  "how_aiandme_works": "📖 How AIandMe Works",
-
   "-- Getting Started": {
     "type": "separator",
-    "title": "🚀 Getting Started"
+    "title": "Getting Started"
   },
-  "quick_start": "Quick Start Guide",
-  "model_providers": "Connect a Model Provider",
-  "creating_a_project": "Creating a Project",
+  "index": "👋 Overview",
+  "quickstart": "⚡ Quickstart",
+  "ai_red_teaming": "🔥 AI Red Teaming",
 
-  "-- Development & AI Security": {
+  "-- Integrations": {
     "type": "separator",
-    "title": "🛡️ Development & AI Security"
+    "title": "Integrations"
   },
-  "experiments": "Experiments & Testing",
-  "llm_as_a_judge": "Understanding LLM-as-a-Judge",
-  "firewall": "AIandMe Firewall: Safe AI Responses",
+  "github": "🐙 GitHub",
+  "mcp_server": "🔌 MCP Server",
 
-  "-- Integration & Monitoring": {
+  "-- Core Concepts": {
     "type": "separator",
-    "title": "📡 Integration & Monitoring"
+    "title": "Core Concepts"
   },
-  "aiandme_integration": "AIandMe Integration",
-  "logging_monitoring": "Logging & Monitoring AI Responses",
+  "projects": "🏢 Projects",
+  "experiments": "🧪 Experiments",
+  "firewall": "🔥 Firewall",
+  "llm_as_a_judge": {
+    "display": "hidden"
+  },
+  "human_in_the_loop": {
+    "display": "hidden"
+  },
 
-  "-- Support & Resources": {
+  "-- Reference": {
     "type": "separator",
-    "title": "📚 Support & Resources"
+    "title": "Reference"
   },
-  "onboarding_your_org": "Onboarding your organisation",
-  "faqs": "FAQs & Troubleshooting",
-  "community": "Join Our Community"
+
+  "organisations": {
+    "display": "hidden"
+  },
+  "invite_your_team": {
+    "display": "hidden"
+  },
+  "deployment_options": "🚀 Deployment Options",
+  "ai_risk_taxonomy": {
+    "display": "hidden"
+  },
+  "owasp_llm_top_10": {
+    "display": "hidden"
+  },
+  "owasp_agentic": {
+    "display": "hidden"
+  },
+
+  "-- Resources": {
+    "type": "separator",
+    "title": "Resources"
+  },
+
+  "community": "👥 Community & Support",
+  "open_source": "💻 Open Source"
 }
