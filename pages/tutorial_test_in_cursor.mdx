@@ -1,0 +1,117 @@
+---
+title: "Testing Your Code with AI&Me MCP Server in Cursor"
+description: "Learn how to set up AI&Me's MCP server in Cursor and test your AI applications for security vulnerabilities"
+date: "2024-12-19"
+author: "AI&Me Team"
+tags: ["tutorial", "mcp", "cursor", "security-testing", "ai"]
+breadcrumb: false
+---
+
+# Testing Your Code with AI&Me MCP Server in Cursor
+
+This tutorial will guide you through setting up AI&Me's MCP (Model Context Protocol) server in Cursor and using it to test your AI applications for security vulnerabilities. With this setup, you can simply ask Cursor to "Test my code with aiandme" and get comprehensive security analysis of your AI components.
+
+## Prerequisites
+
+- A Cursor IDE installation
+- An AI&Me account (sign up at [app.aiandme.io](https://app.aiandme.io))
+- An AI application or codebase you want to test
+
+## Step 1: Login to AI&Me Platform
+
+1. Visit [app.aiandme.io](https://app.aiandme.io)
+2. Sign in to your AI&Me account or create a new one
+3. Navigate to your dashboard
+
+## Step 2: Create a Model Provider
+
+1. In your AI&Me dashboard, go to **Settings** → **Model Providers**
+2. Click **Add Provider** or **Create New Provider**
+3. Select your preferred LLM provider (OpenAI, Anthropic, Azure OpenAI, etc.)
+4. Configure the provider with your API keys and settings
+5. Save the provider configuration
+
+## Step 3: Generate an API Key
+
+1. Navigate to **Settings** → **API Keys**
+2. Click **Create New API Key**
+3. Give your API key a descriptive name (e.g., "Cursor MCP Integration")
+4. Copy the generated API key - you'll need this for the MCP configuration
+5. **Important:** Store this key securely as it won't be shown again
+
+## Step 4: Configure MCP Server in Cursor
+
+1. Open Cursor IDE
+2. Open the Command Palette (`Cmd/Ctrl + Shift + P`)
+3. Search for "MCP" and select **MCP: Open Settings**
+4. Click **Add Server** or the **+** button
+5. Use the following configuration:
+
+```json
+{
+  "mcpServers": {
+    "aiandme": {
+      "url": "https://mcp.aiandme.io/mcp/",
+      "headers": {
+        "Authorization": "Bearer <your-api-key>"
+      }
+    }
+  }
+}
+```
+
+**Replace `<your-api-key>` with the API key you copied in Step 3.**
+
+## Step 5: Test Your Code
+
+Now you can test your AI applications directly from Cursor! Here are some example commands you can use:
+
+### Basic Testing
+
+```
+Test my code with aiandme
+```
+
+### Specific Testing
+
+```
+Analyze my AI assistant for security vulnerabilities
+```
+
+```
+Test my chatbot for prompt injection attacks
+```
+
+```
+Check my LLM application for data privacy issues
+```
+
+## Step 6: View Detailed Results in AI&Me Platform
+
+After the experiment completes, you can view comprehensive results and analysis in the AI&Me platform:
+
+1. **Go to your AI&Me dashboard** at [app.aiandme.io](https://app.aiandme.io)
+2. **Navigate to your project** and find the completed experiment
+3. **View the experiment overview** to see:
+   - Summary of vulnerabilities found
+   - Security metrics and statistics
+   - Overall risk assessment
+   - Recommendations for improvement
+
+4. **Access detailed logs** by clicking on the **Logs** tab to see:
+   - Individual test results
+   - Failed security checks
+   - Successful security validations
+   - Performance metrics
+
+5. **Examine specific test details** by clicking on any log entry to view:
+   - The actual conversation between AI&Me's testing AI and your assistant
+   - The specific prompts that were used to test your system
+   - Your assistant's responses and how they handled security challenges
+   - Detailed analysis of why tests passed or failed
+
+## Support
+
+If you encounter any issues join our [Discord server](https://discord.gg/PSHCDz93xW) and ask for help in the `#community-help` channel.
+
+**Ready to secure your AI applications?** Set up AI&Me MCP server in Cursor and start testing your code today!

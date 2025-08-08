@@ -7,6 +7,12 @@
   "quickstart": "⚡ Quickstart",
   "ai_red_teaming": "🔥 AI Red Teaming",
 
+  "-- Tutorials": {
+    "type": "separator",
+    "title": "Tutorials"
+  },
+  "tutorial_test_in_cursor": "🧪 Test with MCP in Cursor",
+
   "-- Integrations": {
     "type": "separator",
     "title": "Integrations"
