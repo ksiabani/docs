@@ -1,0 +1,277 @@
+# AI&Me Complete Documentation
+
+## Overview
+
+ai&me is a **full-lifecycle AI Red Teaming** platform that helps teams build and deploy generative AI systems safely and confidently. For engineering teams, it automates contextual adversarial testing and **integrates directly into CI/CD pipelines** to catch issues early. For security and product leaders, it provides compliance-ready reports, policy-based controls, and continuous risk monitoring **aligned with your real-world use cases**. This is one platform that secures, tests, and governs your AI without slowing you down.
+
+## Quick Start Guide
+
+Welcome to ai+me! This guide will walk you through setting up your first AI Red Teaming experiment in just a few steps. By the end, you'll have a complete understanding of how to secure your AI applications with contextual testing.
+
+### What You'll Learn
+
+In this guide, you'll:
+
+1. **Set up a model provider** - Connect your AI model to ai+me
+2. **Create a new project** - Define your AI's business scope and boundaries
+3. **Create and run an experiment** - Test your AI for vulnerabilities
+4. **View results** - Analyze test outcomes and insights
+
+### Prerequisites
+
+Before you begin, make sure you have:
+
+- ✅ An ai+me account (sign up at [app.aiandme.io](https://app.aiandme.io))
+- ✅ Access to your AI systems's API endpoint
+- ✅ API credentials for your model provider (e.g. OpenAI or Anthropic)
+- ✅ A clear understanding of what your AI should and shouldn't do
+
+## Projects
+
+Projects are the **foundational organizational unit** in ai+me that define the scope, boundaries, and security parameters of your AI applications. Think of a project as a **container** that holds everything related to testing and securing a specific AI system—from experiments and firewall logs to analytics and insights.
+
+### What is a Project in ai+me?
+
+A project in ai+me represents a **complete AI application or system** that you want to test and secure. It serves as the central hub for:
+
+- **🔒 Security Testing**: Running experiments to identify vulnerabilities
+- **🛡️ Firewall Protection**: Monitoring and blocking unsafe requests
+- **📊 Analytics**: Tracking performance, pass rates, and security metrics
+- **📋 Scope Management**: Defining what your AI should and shouldn't do
+- **🧪 Experiment Organization**: Managing multiple test scenarios
+
+### Creating Your First Project
+
+#### Step 1: Access Project Creation
+
+1. Navigate to your **ai+me Dashboard**
+2. Click **"Create Project"** button in the top right
+3. Or use the **"Start with a Template"** section for quick setup
+
+#### Step 2: Basic Project Information
+
+Fill in the essential project details:
+
+**Project Name**
+- Choose a descriptive, memorable name
+- Example: `"Customer Support Chatbot"`, `"E-commerce AI Assistant"`
+- **Best Practice**: Use clear, business-focused names
+
+**Description**
+- Provide a brief overview of your AI's purpose
+- Example: `"AI-powered customer support system for our e-commerce platform"`
+- **Character Limit**: 255 characters
+
+#### Step 3: Define Your Business Scope
+
+The business scope is the **foundation** of your project. It defines what your AI does and its intended use cases.
+
+**What to Include in Business Scope:**
+- **Primary Function**: What is the main purpose of your AI?
+- **Target Users**: Who will interact with your AI?
+- **Use Cases**: What specific tasks should your AI handle?
+- **Platform/Context**: Where and how will your AI be used?
+- **Business Rules**: Any specific guidelines or constraints?
+
+**Example Business Scope:**
+```
+Our customer support chatbot helps users with product inquiries, order status,
+and basic troubleshooting. It operates within our e-commerce platform and
+provides helpful, accurate information while maintaining a professional tone.
+The chatbot handles common customer questions, processes basic requests, and
+escalates complex issues to human agents when necessary.
+```
+
+#### Step 4: Define Allowed Intents
+
+Allowed intents specify what your AI **should be able to do** within its scope.
+
+**Example Allowed Intents:**
+```
+- Answer questions about product features and specifications
+- Check order status and provide tracking information
+- Help with basic account management (password reset, profile updates)
+- Provide troubleshooting steps for common technical issues
+- Direct users to appropriate human support channels
+- Explain return and refund policies
+- Share general company information and contact details
+```
+
+#### Step 5: Define Restricted Intents
+
+Restricted intents specify what your AI **should never do** or topics it should avoid.
+
+**Example Restricted Intents:**
+```
+- Access or modify user payment information or financial data
+- Provide medical, legal, or financial advice
+- Share internal company data, trade secrets, or confidential information
+- Generate harmful, offensive, or inappropriate content
+- Perform actions outside the e-commerce platform scope
+- Access user personal data beyond what's necessary for support
+- Make promises about product availability or delivery times
+- Provide technical support for issues outside our platform
+```
+
+## Experiments
+
+Experiments are the core testing mechanism in ai+me that systematically evaluate your AI systems for vulnerabilities, safety issues, and behavioral inconsistencies. They use advanced techniques including adversarial testing, behavioral analysis, and automated red teaming to identify potential risks.
+
+### What are Experiments?
+
+Experiments in ai+me are comprehensive security tests that:
+
+- **🧪 Test Multiple Attack Vectors**: From prompt injection to jailbreaking attempts
+- **🎯 Target Specific Vulnerabilities**: Focus on your AI's unique risks and use cases
+- **📊 Provide Detailed Analytics**: Quantify risks and track improvements over time
+- **🔄 Enable Continuous Testing**: Integrate with CI/CD for ongoing security validation
+
+### Types of Experiments
+
+#### 1. Adversarial Testing
+Tests your AI against malicious inputs designed to:
+- Bypass safety measures
+- Extract sensitive information
+- Generate harmful content
+- Manipulate system behavior
+
+#### 2. Behavioral Testing
+Evaluates your AI's behavior across different scenarios:
+- Consistency across similar inputs
+- Appropriate responses to edge cases
+- Alignment with business rules
+- Performance under stress
+
+#### 3. Compliance Testing
+Ensures your AI meets regulatory and policy requirements:
+- Data privacy compliance
+- Industry-specific regulations
+- Internal policy adherence
+- Audit trail requirements
+
+## Firewall
+
+The ai+me Firewall is a real-time protection system that monitors and filters requests to your AI applications, preventing unsafe or malicious inputs from reaching your models.
+
+### How the Firewall Works
+
+The firewall operates as a **protective layer** between your users and your AI systems:
+
+1. **Request Interception**: All requests to your AI are routed through the firewall
+2. **Real-time Analysis**: Each request is analyzed for potential risks
+3. **Policy Enforcement**: Requests are evaluated against your defined policies
+4. **Action Decision**: Safe requests proceed, unsafe requests are blocked or flagged
+
+### Key Features
+
+- **🛡️ Real-time Protection**: Instant blocking of malicious requests
+- **📋 Policy-based Rules**: Customizable security policies
+- **📊 Detailed Logging**: Complete audit trail of all requests
+- **🔧 Easy Integration**: Simple API integration with existing systems
+- **📈 Performance Monitoring**: Track security metrics and trends
+
+## AI Red Teaming
+
+AI Red Teaming is a systematic approach to testing AI systems by simulating adversarial attacks and identifying potential vulnerabilities before they can be exploited.
+
+### Adversarial Testing
+
+Adversarial testing involves creating inputs designed to:
+- **Bypass Safety Measures**: Test the robustness of your AI's safety filters
+- **Extract Sensitive Information**: Attempt to access private or confidential data
+- **Generate Harmful Content**: Try to make the AI produce inappropriate responses
+- **Manipulate Behavior**: Attempt to make the AI act outside its intended scope
+
+### AI Assurance
+
+AI assurance focuses on ensuring your AI systems:
+- **Meet Safety Standards**: Comply with safety guidelines and best practices
+- **Maintain Consistency**: Provide reliable and predictable responses
+- **Respect Boundaries**: Stay within defined operational parameters
+- **Handle Edge Cases**: Respond appropriately to unusual or unexpected inputs
+
+### Behavioral Testing
+
+Behavioral testing evaluates how your AI responds across different scenarios:
+- **Consistency Testing**: Ensure similar inputs produce consistent outputs
+- **Edge Case Handling**: Test responses to unusual or boundary conditions
+- **Stress Testing**: Evaluate performance under high load or complex inputs
+- **Alignment Verification**: Confirm AI behavior matches business requirements
+
+## Integrations
+
+### GitHub Integration
+
+Integrate ai+me with your GitHub workflows to:
+- **Automate Security Testing**: Run experiments as part of your CI/CD pipeline
+- **Track Security Metrics**: Monitor security improvements over time
+- **Enforce Security Gates**: Block deployments that fail security tests
+- **Generate Security Reports**: Create compliance-ready documentation
+
+### MCP Server
+
+Use ai+me through the Model Context Protocol (MCP):
+- **Direct IDE Integration**: Test AI systems directly from your development environment
+- **Real-time Feedback**: Get immediate security insights while coding
+- **Seamless Workflow**: Integrate security testing into your development process
+- **Enhanced Productivity**: Catch security issues early in development
+
+## Supported Models
+
+AI&Me uses these specific models for security testing and analysis:
+
+### OpenAI
+- `gpt-4.1-2025-04-14`
+
+### Anthropic
+- `claude-opus-4-1-20250805`
+
+### Google
+- `models/gemini-2.5-flash`
+
+### xAI
+- `grok-4-0709`
+
+AI&Me automatically selects the appropriate model based on your testing requirements. No manual configuration needed.
+
+## Deployment Options
+
+ai+me offers multiple deployment options to meet your security and compliance requirements:
+
+### Cloud Deployment
+- **Fully Managed**: Hosted and maintained by ai+me
+- **Quick Setup**: Get started in minutes
+- **Automatic Updates**: Always have the latest security features
+- **Scalable**: Handles any size workload
+
+### Self-Hosted Deployment
+- **Complete Control**: Full control over your data and infrastructure
+- **Custom Integration**: Integrate with your existing security tools
+- **Compliance Ready**: Meet strict regulatory requirements
+- **Air-gapped Environments**: Deploy in isolated networks
+
+### Hybrid Deployment
+- **Flexible Architecture**: Mix cloud and on-premises components
+- **Data Sovereignty**: Keep sensitive data on-premises
+- **Scalable Processing**: Use cloud resources for compute-intensive tasks
+- **Custom Security**: Implement your own security controls
+
+## Community & Support
+
+Join the ai+me community to:
+- **Get Help**: Access support from the ai+me team and community
+- **Share Knowledge**: Learn from other users' experiences
+- **Contribute**: Help improve ai+me through feedback and contributions
+- **Stay Updated**: Get the latest news and updates
+
+## Open Source
+
+ai+me includes open source components that you can:
+- **Review**: Examine the code for transparency and security
+- **Contribute**: Submit improvements and bug fixes
+- **Customize**: Modify to meet your specific needs
+- **Learn**: Understand how AI security testing works
+
+---
+
+For more information, visit [aiandme.io](https://aiandme.io)

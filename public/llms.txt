@@ -1,0 +1,43 @@
+# AI&Me Documentation Overview
+
+This is the AI&Me documentation - a full-lifecycle AI Red Teaming platform that helps teams build and deploy generative AI systems safely and confidently.
+
+## Getting Started
+- Overview: Welcome to ai+me - Full-lifecycle AI Red Teaming platform for secure AI deployment
+- Quickstart: Get started with AI&Me in minutes with step-by-step guidance
+- AI Red Teaming: Core concepts and methodologies for AI security testing
+
+## Quickstart Guide
+- Create Project: Set up your first AI security testing project
+- Setup Model Provider: Configure your LLM provider for testing
+- Create Experiment: Launch your first AI security experiment
+- View Results: Understand and interpret your security testing results
+- Provide Feedback: Give feedback to improve AI model behavior
+- Next Steps: Continue your AI security journey
+
+## AI Red Teaming
+- Adversarial Testing: Test AI systems against malicious inputs and attacks
+- AI Assurance: Ensure AI systems meet safety and compliance requirements
+- Behavioral Testing: Evaluate AI behavior across different scenarios
+
+## Tutorials
+- Test with MCP in Cursor: Use AI&Me directly in Cursor IDE for testing
+
+## Integrations
+- GitHub: Integrate AI&Me with your GitHub workflows
+- MCP Server: Use AI&Me through Model Context Protocol
+
+## Core Concepts
+- Projects: Organize and manage your AI security testing projects
+- Experiments: Run comprehensive AI security experiments
+- Firewall: Protect your AI systems with policy-based controls
+
+## Reference
+- Deployment Options: Choose the right deployment model for your needs
+- Supported Models: AI models used by AI&Me for security testing
+
+## Resources
+- Community & Support: Get help and connect with the AI&Me community
+- Open Source: Explore AI&Me's open source components
+
+For full documentation content, see: /llms-full.txt 
