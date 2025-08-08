@@ -45,6 +45,11 @@ const config: DocsThemeConfig = {
   chat: {
     link: "https://discord.gg/PSHCDz93xW",
   },
+  useNextSeoProps() {
+    return {
+      titleTemplate: "%s | ai+me Docs",
+    };
+  },
   footer: {
     text: (
       <span>
